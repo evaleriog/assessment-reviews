@@ -24,8 +24,67 @@
       <button id="change-cohort">Update</button>
 
       <br>
-      <button id="change-to-red">Change to Red</button>
+      <button id="highlight">Highlight</button>
     </div>
   </div>
+
+  <script>
+    // Allow the user to type in their favorite food into the input and append it to
+    // the list once the button is clicked.
+
+    document.getElementById("add-to-list").addEventListener("click", function (e) {
+      e.preventDefault();
+
+      let food = document.getElementById("input").value;
+      if(food !== ""){
+        let node = document.createElement("li");
+        let textnode = document.createTextNode(food);
+
+        node.appendChild(textnode);
+        document.getElementById("favorite-food").appendChild(node);
+      }
+      else{
+        alert("Please enter your favorite food");
+      }
+
+    });
+
+    // When the heading 'Change Me' is double clicked, change its
+    // background-color to purple
+
+    document.getElementById("change-me").addEventListener("dblclick", function () {
+        this.style.backgroundColor = "purple";
+    });
+
+    // Allow the user to input their cohort name. Once Update button is clicked, the
+    // text should should update with the name of the cohort.
+
+    document.getElementById("change-cohort").addEventListener("click", function (e) {
+
+      let cohort = document.getElementById("cohort-name").value;
+
+      if(cohort !== ""){
+        document.getElementById("my-cohort").innerText = cohort;
+      }
+      else{
+        alert("Please enter a Cohort name...");
+      }
+    });
+
+    // When 'Highlight' button is clicked, change the background color of
+    // the cohort name to yellow
+
+    document.getElementById("highlight").addEventListener("click", function () {
+      document.getElementById("my-cohort").style.backgroundColor = "yellow";
+    });
+
+    // Write some JavaScript that changes the background-color of the container
+    // to pink after 3 seconds.
+
+    setInterval(function () {
+      document.getElementsByClassName("container")[0].style.backgroundColor = "pink";
+    }, 3000);
+
+  </script>
 </body>
 </html>
